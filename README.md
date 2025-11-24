@@ -13,20 +13,23 @@ A production-ready Clean Architecture implementation for .NET Web API projects. 
 This solution follows Clean Architecture principles with strict layer separation:
 
 ```
-┌─────────────────────────────────────────┐
-│              API Layer                  │  (Controllers, Middleware)
+┌───────────────API Layer─────────────────┐
+│                                         │  (Controllers, Middleware)
 │    - CleanArchitectureApi.Api           │
-├─────────────────────────────────────────┤
-│         Application Layer               │  (CQRS, DTOs, Validation)
-│   - CleanArchitectureApi.Application    │
-├─────────────────────────────────────────┤
-│          Domain Layer                   │  (Entities, Business Logic)
-│    - CleanArchitectureApi.Domain        │
-├─────────────────────────────────────────┤
-│       Infrastructure Layer              │  (Data Access, External Services)
+|                                         |
+├─────────Infrastructure Layer────────────┤
+│                                         │  (Data Access, External Services)
 │    - CleanArchitectureApi.Persistence   │
 │    - CleanArchitectureApi.Infrastructure│
 │    - CleanArchitectureApi.Identity      │
+|                                         |
+├───────────────Core Layer────────────────┤
+|                                         |
+│               Application               │  (CQRS, DTOs, Validation)
+│   - CleanArchitectureApi.Application    │
+├  -  -  -  -  -  -  -  -  -  -  -  -  -  ┤
+│                Domain                   │  (Entities, Business Logic)
+│    - CleanArchitectureApi.Domain        │
 └─────────────────────────────────────────┘
 ```
 
