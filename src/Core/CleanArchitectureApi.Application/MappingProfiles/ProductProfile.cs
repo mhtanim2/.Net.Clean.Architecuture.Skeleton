@@ -11,30 +11,12 @@ public class ProductProfile : Profile
 {
     public ProductProfile()
     {
-        CreateMap<Domain.Entities.Product, ProductDto>()
-            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-            .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
-            .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
-            .ForMember(dest => dest.StockQuantity, opt => opt.MapFrom(src => src.StockQuantity))
-            .ForMember(dest => dest.SKU, opt => opt.MapFrom(src => src.SKU))
-            .ForMember(dest => dest.IsActive, opt => opt.MapFrom(src => src.IsActive))
-            .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt));
+        CreateMap<Domain.Entities.Product, ProductDto>().ReverseMap();
 
         // Command to Entity mapping
-        CreateMap<Features.Product.Commands.CreateProduct.CreateProductCommand, Domain.Entities.Product>()
-            .ForMember(dest => dest.Id, opt => opt.Ignore())
-            .ForMember(dest => dest.DateCreated, opt => opt.Ignore())
-            .ForMember(dest => dest.CreatedBy, opt => opt.Ignore())
-            .ForMember(dest => dest.DateModified, opt => opt.Ignore())
-            .ForMember(dest => dest.ModifiedBy, opt => opt.Ignore())
-            .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.UtcNow));
+        CreateMap<Features.Product.Commands.CreateProduct.CreateProductCommand, Domain.Entities.Product>();
 
         // TODO: Add other mappings as needed
-        // CreateMap<Features.Product.Commands.UpdateProduct.UpdateProductCommand, Domain.Entities.Product>()
-        //     .ForMember(dest => dest.Id, opt => opt.Ignore())
-        //     .ForMember(dest => dest.DateCreated, opt => opt.Ignore())
-        //     .ForMember(dest => dest.CreatedBy, opt => opt.Ignore())
-        //     .ForMember(dest => dest.CreatedAt, opt => opt.Ignore());
+        // CreateMap<Features.Product.Commands.UpdateProduct.UpdateProductCommand, Domain.Entities.Product>();
     }
 }

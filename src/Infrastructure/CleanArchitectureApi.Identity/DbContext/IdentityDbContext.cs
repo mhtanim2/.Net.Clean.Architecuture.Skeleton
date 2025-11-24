@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArchitectureApi.Identity.Models;
+namespace CleanArchitectureApi.Identity.DbContext;
 
 /// <summary>
 /// Identity database context

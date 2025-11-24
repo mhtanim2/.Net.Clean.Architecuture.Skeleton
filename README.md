@@ -1,6 +1,12 @@
 # Clean Architecture Web API Skeleton
 
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/mhtanim2/.Net.Clean.Architecuture.Skeleton/actions)
+[![.NET](https://img.shields.io/badge/.NET-9.0-purple.svg)](https://dotnet.microsoft.com/download/dotnet/9.0)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)]()
+
 A production-ready Clean Architecture implementation for .NET Web API projects. This skeleton provides a solid foundation for building enterprise-level applications with proper separation of concerns, testability, and maintainability.
+
+**📁 GitHub Repository**: [https://github.com/mhtanim2/.Net.Clean.Architecuture.Skeleton.git](https://github.com/mhtanim2/.Net.Clean.Architecuture.Skeleton.git)
 
 ## 🏗️ Architecture Overview
 
@@ -9,18 +15,18 @@ This solution follows Clean Architecture principles with strict layer separation
 ```
 ┌─────────────────────────────────────────┐
 │              API Layer                  │  (Controllers, Middleware)
-│    - CleanArchitectureApi.Api          │
+│    - CleanArchitectureApi.Api           │
 ├─────────────────────────────────────────┤
 │         Application Layer               │  (CQRS, DTOs, Validation)
-│   - CleanArchitectureApi.Application   │
+│   - CleanArchitectureApi.Application    │
 ├─────────────────────────────────────────┤
 │          Domain Layer                   │  (Entities, Business Logic)
-│    - CleanArchitectureApi.Domain       │
+│    - CleanArchitectureApi.Domain        │
 ├─────────────────────────────────────────┤
 │       Infrastructure Layer              │  (Data Access, External Services)
-│ - CleanArchitectureApi.Persistence     │
-│ - CleanArchitectureApi.Infrastructure  │
-│ - CleanArchitectureApi.Identity        │
+│    - CleanArchitectureApi.Persistence   │
+│    - CleanArchitectureApi.Infrastructure│
+│    - CleanArchitectureApi.Identity      │
 └─────────────────────────────────────────┘
 ```
 
@@ -71,7 +77,7 @@ Update the connection string in `appsettings.json`:
 Create and apply migrations:
 
 ```bash
-dotnet ef database add-migration InitialCreate -p CleanArchitectureApi.Persistence -s CleanArchitectureApi.Api
+dotnet ef migrations add InitialCreate -p CleanArchitectureApi.Persistence -s CleanArchitectureApi.Api
 dotnet ef database update -p CleanArchitectureApi.Persistence -s CleanArchitectureApi.Api
 ```
 
@@ -86,6 +92,19 @@ The API will be available at `https://localhost:7123` (check console for exact U
 ### 4. Explore API Documentation
 
 Open your browser and navigate to `https://localhost:7123` to view Swagger UI.
+
+## 📸 Screenshots
+
+### Swagger UI with Authentication
+![Swagger UI](docs/images/swagger-ui.png)
+
+### Project Structure
+![Project Structure](docs/images/project-structure.png)
+
+### Architecture Diagram
+![Architecture Diagram](docs/images/architecture-diagram.png)
+
+> **Note**: Screenshots will be added in future updates. You can add your own screenshots in the `docs/images/` folder.
 
 ## 📁 Project Structure
 
@@ -130,6 +149,21 @@ The application includes a default admin user for testing:
    ```
    Authorization: Bearer YOUR_JWT_TOKEN
    ```
+
+## 🎯 Sample Implementation: Product Management
+
+This skeleton includes a **complete Product CRUD implementation** demonstrating all Clean Architecture patterns:
+
+### **Included Features:**
+- **Domain Entity**: Product with properties (Name, Description, Price, Stock, SKU)
+- **CQRS Commands**: Create, Update, Delete with validation
+- **CQRS Queries**: GetAll, GetById with pagination support
+- **API Endpoints**: Full REST API with role-based authorization
+- **Repository Pattern**: Generic repository with specific Product methods
+- **Validation**: FluentValidation rules for all operations
+- **Mapping**: AutoMapper profiles for DTO transformations
+
+This serves as a perfect reference for implementing your own features following the same patterns.
 
 ## 📚 Adding New Features
 
@@ -330,10 +364,6 @@ TODO: Add GitHub Actions workflow
 4. Add tests
 5. Submit a pull request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 📞 Support
 
 If you have any questions or issues, please create an issue in the repository.
@@ -359,6 +389,26 @@ If you have any questions or issues, please create an issue in the repository.
 - ✅ Pagination Ready
 - ✅ Caching Ready
 
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these guidelines:
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/your-feature-name`
+3. **Follow the existing code style and patterns**
+4. **Add tests for new features**
+5. **Ensure all tests pass**: `dotnet test`
+6. **Create a pull request with a clear description**
+
+### Code Style Guidelines
+
+- Use PascalCase for public members
+- Use camelCase for private fields
+- Add XML comments for public APIs
+- Follow Clean Architecture principles
+- Keep classes small and focused
+
 ## 🔄 Next Steps
 
 - [ ] Add Docker support
@@ -366,7 +416,7 @@ If you have any questions or issues, please create an issue in the repository.
 - [ ] Add pagination support
 - [ ] Implement caching layer
 - [ ] Add file upload support
-- [ ] Implement signalr for real-time features
+- [ ] Implement SignalR for real-time features
 - [ ] Add rate limiting
 - [ ] Implement API key authentication
 - [ ] Add health checks
