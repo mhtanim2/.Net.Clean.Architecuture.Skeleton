@@ -96,19 +96,6 @@ The API will be available at `https://localhost:7123` (check console for exact U
 
 Open your browser and navigate to `https://localhost:7123` to view Swagger UI.
 
-## 📸 Screenshots
-
-### Swagger UI with Authentication
-![Swagger UI](docs/images/swagger-ui.png)
-
-### Project Structure
-![Project Structure](docs/images/project-structure.png)
-
-### Architecture Diagram
-![Architecture Diagram](docs/images/architecture-diagram.png)
-
-> **Note**: Screenshots will be added in future updates. You can add your own screenshots in the `docs/images/` folder.
-
 ## 📁 Project Structure
 
 ```
